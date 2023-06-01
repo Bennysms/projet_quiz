@@ -1,3 +1,7 @@
+<?php
+
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -6,6 +10,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="requete.js" defer></script>
+    <script src="index.js"></script>
     <title>Quiz</title>
 </head>
 
@@ -26,8 +32,8 @@
             <div class="compter">
                 <span class="point">0 / </span><span class="total">10</span>
             </div>
-            <form action="" class="questions">
-                <p class="question">
+            <form action="traitement.php" method="POST" class="questions">
+                <p class="question" id ="question">
                     Quel est le nom de votre chien?
                 </p>
                 <ul class="response">
@@ -39,11 +45,11 @@
                 <p class="true_response response">Bonne reponse</p>
                 <p class="false_response response">Mauvaise reponse</p>
 
-                <input type="submit" value="Check Answer">
+                <input type="submit" value="Next">
 
             </form>
         </div>
-        <script>
+        <!-- <script>
             let text = document.querySelector('.question');
             let resp = document.querySelectorAll('.response li');
             text.addEventListener('click', () => {
@@ -57,7 +63,7 @@
                     speechSynthesis.speak(ute);
                 });
             });
-        </script>
+        </script> -->
 </body>
 
 </html>
