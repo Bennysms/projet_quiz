@@ -1,5 +1,5 @@
 <?php
-
+require 'traitement.php';
 
 ?>
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="requete.js" defer></script>
-    <script src="index.js"></script>
+    <!-- <script src="index.js" defer></script> -->
     <title>Quiz</title>
 </head>
 
@@ -49,6 +49,17 @@
 
             </form>
         </div>
+        <script src="traitement.php"></script>
+        <script>
+            //  recuperation de donnée de la database
+            // var quiz = JSON.parse($json_table);
+            // console.log(quiz.question);
+
+            console.log(quiz_data.question);
+            
+
+
+        </script>
         <!-- <script>
             let text = document.querySelector('.question');
             let resp = document.querySelectorAll('.response li');

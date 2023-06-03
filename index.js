@@ -1,3 +1,4 @@
+ 
  // HTML element representing the timer
  const timerElement = document.querySelector('.timer span');
 
@@ -39,3 +40,5 @@
  nextQuestionButton.addEventListener('click', () => {
    stopTimer(); // Stop the timer
  });
+
+

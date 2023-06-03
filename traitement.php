@@ -1,23 +1,31 @@
 <?php require 'db.php';
 
-if(isset($_GET['action']) && $_GET['action'] == 'getQuestions'){
-    $query = "SELECT * FROM questions";
-    $stm = $db->prepare($query);
-    $stm->execute();
-    $questions = $stm->fetchAll(PDO::FETCH_ASSOC);
-    header('Content-Type: application');
-    json_endecode($questions);
+$query = "SELECT * FROM quiz_table";
+$stm = $db->prepare($query);
+$stm->execute();
+$quizData = [];
+
+while ($row = $stm->fetch()) {
+    $question = $row["question"];
+    $options = [
+        $row["option1"],
+        $row["option2"],
+        $row["option3"],
+        $row["option4"]
+    ];
+    $reponse = $row["reponse"];
+    
+    $quizData =array(
+        "question" => $question,
+        "options" => $options,
+        "response" => $reponse
+    );
+
+    $quiz_data =json_encode($quizData);
+
+    echo '<pre>';
+    print_r($quiz_data);
+    echo '</pre>';
 }
 
-if(isset($_GET['action']) && $_GET['action'] == 'getAnswer'){
-
-    $question_id = $_GET['question_id'];
-
-    $query = "SELECT * FROM response WHERE question_id = ?";
-    $stm = $db->prepare($query);
-    $stm->execute([$question_id]);
-    $answers = $stm->fetchAll(PDO::FETCH_ASSOC);
-    header('Content-Type: application');
-    json_endecode($answers);
-}
 $db = null;
