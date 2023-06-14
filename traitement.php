@@ -1,16 +1,22 @@
 <?php 
     require 'db.php';
+    $theme = $_GET['theme'];
+    try {
 
-    $query = "SELECT * FROM quiz_table";
+    $query = "SELECT * FROM $theme";
     $stm = $db->prepare($query);
     $stm->execute();
 
     $quizData = $stm->fetchAll(PDO::FETCH_ASSOC);
 
-    $quiz = json_encode($quizData);
-
-    echo $quiz;
+    header('Content-Type: application/json');
+    echo json_encode($quizData);
 
     $db = null;
+
+    } catch (PDOexception $e) {
+        die('Erreur '.$e->getMessage());
+    }
+
 
 ?>

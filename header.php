@@ -13,7 +13,7 @@
 
 <body>
     <header>
-        <a href="#" class="logo">
+        <a href="index.php" class="logo">
             <img src="image/cdp.JPG" alt="logo">
         </a>
         <div class="time">

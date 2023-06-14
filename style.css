@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 *,
  ::after,
  ::before {
@@ -17,11 +19,11 @@ body {
     width: 100%;
     height: 100vh;
     background-color: var(--second-color);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 header {
-    width: 80%;
+    width: 90%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -46,10 +48,10 @@ header {
     color: var(--second-color);
     border-radius: 6px;
 }
-.compteur, .compteurAnswer{
+.compteur{
     position: absolute;
     top:0;
-    left: 140px;
+    left: 60px;
     width: 300px;
     background-color: var(--mani-color);
     padding: 20px;
@@ -59,7 +61,15 @@ header {
     font-size: 18px;
 }
 .compteurAnswer{
+    position: absolute;
+    top:-148px;
+    right: 61px;
+    width: 300px;
+    padding: 20px;
     margin-top: 150px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 18px;
     background-color: var(--white-color);
     color: var(--mani-color);
     transition: all .3s ease;
@@ -83,7 +93,7 @@ header {
 }
 
 .content {
-    width: 500px;
+    width: 700px;
     padding: 20px 30px;
     border-radius: 10px;
     box-shadow: var(--mani-color) 1px 0px 6px 0px;
@@ -111,12 +121,12 @@ header {
 .question_content {
     width: 100%;
 }
-
-.question {
-    text-align: center;
+.num{
+    display: flex;
+    margin-bottom: 20px;
+    gap: 5px;
     color: var(--second-color);
     font-size: 18px;
-    margin-bottom: 20px;
     font-weight: 500;
 }
 
@@ -188,40 +198,61 @@ p.false_response {
 }
 .d-block{
     display: block !important;
-    transition: all .4s ease !important;
     opacity: 1 !important;
+    transition: all .3s ease-in-out !important;
 }
-
-#submit {
+.btn-group{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    gap: 20px;
+}
+#submit{
     color: var(--second-color);
     border: solid 1px var(--mani-color);
     padding: 10px 30px;
     background-color: transparent;
     border-radius: 6px;
     display: block;
-    margin: 0 auto;
-    margin-top: 20px;
     box-shadow: var(--mani-color) 1px 0px 6px 0px;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
 }
+#prev {
+    color: var(--white-color);
+    padding: 10px 30px;
+    background-color: var(--second-color);
+    border-radius: 6px;
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all .3s ease-in-out;
+    display: none;
+}
+#prev:hover{
+    transform: scale(.9);
+}
 
+/* style de la page d'acceuil */
 .start_main{
     width: 100%;
     height: 70%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 4rem;
     align-items: center;
 }
 .start_p{
-    font-size: 4rem;
+    font-size: 3.5rem;
     text-transform: uppercase;
     font-family: 'Courier New', Courier, monospace;
     font-weight: 600;
-    color: var(--mani-color);
+    color:rgb(141, 151, 181);
+    margin: 30px 0 50px;
 }
 .start_btn{
     font-size: 1.5rem;
@@ -230,9 +261,53 @@ p.false_response {
     padding: 10px 30px;
     border-radius: 6px;
     font-weight: 600;
-    transition: all .3s ease;
+    transition: all .3s ease-in-out;
 }
 .start_btn:hover{
     background-color: var(--mani-color);
     transform: scale(0.9);
+}
+
+p.dev{
+    font-size: 2rem;
+    color: #fff;
+    font-family: 'Satisfy', cursive;
+    margin-bottom: 50px;
+}
+p.dev .text{
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #C8A970;
+    font-family: 'Poppins', sans-serif;
+}
+p.choix{
+    font-size: 20px;
+    margin: 40px 0 10px;
+    color: #ddd;
+    font-weight: 200;
+}
+.theme{
+    padding: 30px 20px;
+    border-radius: 6px;
+    background-color: #C8A970;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+.theme a{
+    padding: 10px 30px ;
+    background-color: #fff;
+    color: var(--second-color);
+    display: inline-block;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all .3s ease-in-out;
+}
+.theme a:hover{
+    transform: scale(.9);
+    color: #fff;
+    background-color: var(--second-color);
 }

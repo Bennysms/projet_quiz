@@ -12,7 +12,10 @@
                 <span class="point">15</span> / <span class="total"></span>
             </div>
             <div class="question_content">
-                <p class="question" id ="question"></p>
+                <div class="num">
+                    <span class="numero">1 </span> .
+                    <p class="question" id ="question">1</p>
+                </div>
                 <ul class="response">
                     <li class="option1"></li>
                     <li class="option2"></li>
@@ -26,7 +29,10 @@
                 <p class="false_response response">
                     Mauvaise réponse
                 </p> 
-                <button id="submit">Next</button>
+                <div class="btn-group">
+                    <button id="submit">Next</button>
+                    <a href="index.php" id="prev">Changez de thème</a>
+                </div>
 
             </div>
         </div>
@@ -35,26 +41,9 @@
             <p><span class="secondCompt"></span>  seconde(s)</p>
         </div>
         <div class="compteurAnswer">
-            <p>Vous avez <span class="total_point"></span></p>
+            <p>Vous avez <span class="total_point"></span> bonne(s) réponse(s)</p>
         </div>
     </div>
-        <!-- <script>
-            let text = document.querySelector('.question');
-            let resp = document.querySelectorAll('.response li');
-            text.addEventListener('click', () => {
-                let ute = new SpeechSynthesisUtterance(text.innerHTML);
-                speechSynthesis.speak(ute);
-            });
-
-            resp.forEach(el => {
-                el.addEventListener('mouseenter', () => {
-                    let ute = new SpeechSynthesisUtterance(el.innerHTML);
-                    speechSynthesis.speak(ute);
-                });
-            });
-
-            
-        </script> -->
         <script src="traitement.js"></script>
 </body>
 

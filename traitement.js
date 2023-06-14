@@ -29,28 +29,34 @@ const false_answer = document.querySelector('.false_response');
 
 // le bouton pour passe aux questions suivantes
 const next_btn = document.querySelector('#submit');
+const menu = document.querySelector('#prev');
 next_btn.style.pointerEvents = 'none';
 
 // maintenant passons aux choses sérieuses
 
-
+// recuperation du thème passé en paramètre
+var urlParams = new URLSearchParams(window.location.search);
+var theme = urlParams.get('theme');
 
 
 // pour recuperer une question précise et ses differentes options
 let index = 0;
+let num = document.querySelector('.numero');
+num.innerHTML = 1;
 
 // pour stocker les données provenants de la base de données
 let quiz_data = [];
 
 // fetch pour recuperer les données entrées par de la base de données
-fetch("traitement.php").then((response) => response.json()).then((data)=>{
+fetch("traitement.php?theme="+theme).then((response) => response.json()).then((data)=>{
     quiz_data = data;
 
     console.log(quiz_data);
     total.textContent = quiz_data.length;
     afficherQuestion();
-  }).catch((error) =>
-    console.error(error));
+  }).catch((error) =>{
+    console.error(error)
+  });
 
 // une fonction qui afficher les questions
 function afficherQuestion(){
@@ -88,6 +94,7 @@ options.forEach(option =>{
 // passer à la question suivante
 next_btn.addEventListener("click", (e) =>{
     index++;
+    
     next_btn.style.pointerEvents = 'none';
     true_answer.classList.remove('d-block');
     false_answer.classList.remove('d-block');
@@ -99,19 +106,22 @@ next_btn.addEventListener("click", (e) =>{
     if(index >= quiz_data.length){
       options.forEach(option =>{
         option.style.pointerEvents ="none";
+        menu.style.display = "block";
         
         // appelle de la fonction pour réjouer la partie
         rejouer();
     })
-    compteurAnswer.style.display = 'block';
-    if(point.textContent == 0){
-        total_point.textContent = "0"
-    }
+        compteurAnswer.style.display = 'block';
+        if(point.textContent == 0){
+            total_point.textContent = "0"
+        }
     }
     else{
+        num.innerHTML++;
       afficherQuestion();
       options.forEach(option =>{
         option.style.pointerEvents ="auto";
+        
     })
     }
   });
@@ -119,7 +129,7 @@ next_btn.addEventListener("click", (e) =>{
 
 
 // initialisation du temps
-let min = 1;
+let min = 3;
 let sec = 0;
 
 let minuteCompt = document.querySelector(".minuteCompt");
@@ -130,7 +140,6 @@ function upDateTimer() {
         if(min == 0){
             clearInterval(timerInterval);
             document.querySelector(".compteur").innerHTML = "Terminé...";
-            console.log("terminer");
             return;
         }
         else{
@@ -148,7 +157,8 @@ function upDateTimer() {
     if((minuteCompt.innerHTML == 0) && (secondCompt.innerHTML == 0)){
         options.forEach(option =>{
             option.style.pointerEvents ="none";
-           rejouer();
+            menu.style.display = "block";
+            rejouer();
         })
         compteurAnswer.style.display = 'block';
         if(point.textContent == 0){
