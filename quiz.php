@@ -44,7 +44,6 @@
             <p>Vous avez <span class="total_point"></span> bonne(s) réponse(s)</p>
         </div>
     </div>
-        <script src="traitement.js"></script>
 </body>
 
 </html>

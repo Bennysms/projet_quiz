@@ -25,7 +25,7 @@
             strings:[
                 "Benny SIMISI",
                 "et",
-                "Ben Amor AMINE",
+                "Amine BEN AMOR",
             ],
             typeSpeed: 60,
             backSpeed: 60,

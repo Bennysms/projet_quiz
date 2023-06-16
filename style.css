@@ -10,9 +10,15 @@
 }
 
 :root {
-    --mani-color: #C8A970;
+    --man-color: #C8A970;
     --second-color: #191D3D;
     --white-color: #fff;
+ 
+}
+.dark-theme{
+    --second-color: #fff;
+    --white-color: #191D3D;
+    transition: all .4s ease-in-out;
 }
 
 body {
@@ -20,6 +26,7 @@ body {
     height: 100vh;
     background-color: var(--second-color);
     font-family: 'Poppins', sans-serif;
+    transition: all .4s ease-in-out;
 }
 
 header {
@@ -28,7 +35,7 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 10px 0;
-    border-bottom: 1px solid var(--mani-color);
+    border-bottom: 1px solid var(--man-color);
     margin: 0 auto;
 }
 
@@ -37,23 +44,33 @@ header {
     height: 100px;
     border-radius: 50%;
     object-fit: cover;
-    border: 1px solid var(--mani-color);
+    border: 1px solid var(--man-color);
 }
 
 .time {
-    background-color: var(--mani-color);
+    background-color: var(--man-color);
     padding: 10px 20px;
     font-size: 18px;
     font-weight: bold;
     color: var(--second-color);
     border-radius: 6px;
 }
+.right{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.right #icon {
+    color: var(--white-color);
+    font-size: 25px;
+    cursor: pointer;
+}
 .compteur{
     position: absolute;
     top:0;
     left: 60px;
     width: 300px;
-    background-color: var(--mani-color);
+    background-color: var(--man-color);
     padding: 20px;
     border-radius: 6px;
     color: var(--second-color);
@@ -70,8 +87,8 @@ header {
     border-radius: 6px;
     font-weight: bold;
     font-size: 18px;
-    background-color: var(--white-color);
-    color: var(--mani-color);
+    background-color: var(--man-color);
+    color: var(--second-color);
     transition: all .3s ease;
     display: none;
 }
@@ -96,7 +113,7 @@ header {
     width: 700px;
     padding: 20px 30px;
     border-radius: 10px;
-    box-shadow: var(--mani-color) 1px 0px 6px 0px;
+    box-shadow: var(--man-color) 1px 0px 6px 0px;
     background-color: var(--white-color);
 }
 
@@ -104,10 +121,11 @@ header {
     text-align: center;
     margin-bottom: 20px;
     font-weight: 600;
+    color: var(--second-color);
 }
 
 .compter {
-    border: solid 1px var(--mani-color);
+    border: solid 1px var(--man-color);
     text-align: center;
     padding: 10px;
     width: 100px;
@@ -115,7 +133,7 @@ header {
     margin-bottom: 20px;
     border-radius: 6px;
     color: var(--second-color);
-    box-shadow: var(--mani-color) 1px 0px 6px 0px;
+    box-shadow: var(--man-color) 1px 0px 6px 0px;
 }
 
 .question_content {
@@ -135,7 +153,7 @@ header {
 }
 
 .response li{
-    background-color: var(--mani-color);
+    background-color: var(--man-color);
     display: flex;
     align-items: center;
     width: 100%;
@@ -155,7 +173,7 @@ header {
     width: 20px;
     height:20px;
     left: 15px;
-    border: 3px solid white;
+    border: 3px solid var(--white-color);
     border-radius: 50%;
     margin-right: 20px;
 }
@@ -166,7 +184,7 @@ header {
 .response li.active + .response li::before{
     width: 15px;
     height: 15px;
-    border: 3px solid white;
+    border: 3px solid var(--white-color);
     background-color: transparent;
 }
 
@@ -211,12 +229,12 @@ p.false_response {
 }
 #submit{
     color: var(--second-color);
-    border: solid 1px var(--mani-color);
+    border: solid 1px var(--man-color);
     padding: 10px 30px;
     background-color: transparent;
     border-radius: 6px;
     display: block;
-    box-shadow: var(--mani-color) 1px 0px 6px 0px;
+    box-shadow: var(--man-color) 1px 0px 6px 0px;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
@@ -264,26 +282,26 @@ p.false_response {
     transition: all .3s ease-in-out;
 }
 .start_btn:hover{
-    background-color: var(--mani-color);
+    background-color: var(--man-color);
     transform: scale(0.9);
 }
 
 p.dev{
     font-size: 2rem;
-    color: #fff;
+    color: var(--white-color);
     font-family: 'Satisfy', cursive;
     margin-bottom: 50px;
 }
 p.dev .text{
     font-weight: bold;
     letter-spacing: 1px;
-    color: #C8A970;
+    color: var(--man-color);
     font-family: 'Poppins', sans-serif;
 }
 p.choix{
     font-size: 20px;
     margin: 40px 0 10px;
-    color: #ddd;
+    color: #b4b4b4;
     font-weight: 200;
 }
 .theme{
@@ -298,7 +316,7 @@ p.choix{
 }
 .theme a{
     padding: 10px 30px ;
-    background-color: #fff;
+    background-color: var(--white-color);
     color: var(--second-color);
     display: inline-block;
     text-decoration: none;
@@ -308,6 +326,6 @@ p.choix{
 }
 .theme a:hover{
     transform: scale(.9);
-    color: #fff;
+    color: var(--white-color);
     background-color: var(--second-color);
 }

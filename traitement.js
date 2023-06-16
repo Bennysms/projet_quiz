@@ -1,3 +1,21 @@
+
+// dark mode
+let icon = document.querySelector('#icon');
+
+icon.addEventListener('click', (e) =>{
+    document.body.classList.toggle('dark-theme');
+        if(document.body.classList.contains('dark-theme')){
+            icon.classList.add('bx-moon');
+            icon.classList.remove('bx-sun');
+        }
+        else{
+            icon.classList.remove('bx-moon');
+            icon.classList.add('bx-sun');
+        }
+
+})
+
+
 // declaration de differente variables dont nous aurons besoin
 
 // pour compter le point du user
